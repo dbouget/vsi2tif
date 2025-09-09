@@ -54,7 +54,7 @@ def cellsens2tif_single(
             logging.error("Issue cleaning up after all planes conversion.")
             logging.error(traceback.format_exc())
     else:
-        if os.path.exists(output_path) and not skip_converted:
+        if not os.path.exists(output_path) or not skip_converted:
             cellsens2tif(input_path, output_path, bfconvert, compression, tz, plane, quality, max_mem, verbose)
         elif skip_converted:
             logging.info(f"Skipping already converted slide: {output_path}")

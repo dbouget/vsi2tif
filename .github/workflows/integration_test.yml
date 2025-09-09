@@ -86,3 +86,11 @@ jobs:
       - name: Test batch conversion
         run: vsi2tif -i ./WSI -o ./converted/ -b bftools/bfconvert -v 0
         shell: bash
+
+      - name: Test batch conversion
+        run: vsi2tif -i ./WSI -o ./converted/ -b bftools/bfconvert -v 0
+        shell: bash
+
+      - name: Test batch conversion
+        run: vsi2tif -i ./WSI -o ./converted/ -b bftools/bfconvert -v 0 --noskip-converted
+        shell: bash
