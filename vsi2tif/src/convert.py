@@ -72,7 +72,9 @@ def cellsens2tif(
         # construct tiled, pyramidal TIFF
         try:
             raw2tif(bigtiff_path, output_path, compression, quality, verbose)
+            assert os.path.exists(output_path)
         except Exception as e:
             logging.error(f"Failed to convert BigTIFF to tiled, pyramidal TIFF. Skipping image: {input_path}")
             logging.error(e)
             raise e
+    logging.info(f"File converted in {output_path}")
