@@ -68,9 +68,9 @@ jobs:
 
       - name: Install libvips (prebuilt)
         run: |
-          wget https://github.com/libvips/libvips/releases/download/v8.15.2/vips-8.15.2-linux-x64.tar.gz
-          tar xf vips-8.15.2-linux-x64.tar.gz
-          sudo mv vips-8.15.2-linux-x64 /usr/local/libvips
+          wget https://github.com/libvips/libvips/releases/download/v8.17.1/vips-8.17.1.tar.xz
+          tar xf vips-8.17.1.tar.xz
+          sudo mv vips-8.17.1 /usr/local/libvips
           echo "/usr/local/libvips/bin" | sudo tee /etc/profile.d/vips.sh
           echo "/usr/local/libvips/lib" | sudo tee /etc/ld.so.conf.d/vips.conf
           sudo ldconfig
