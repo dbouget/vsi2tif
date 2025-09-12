@@ -66,11 +66,16 @@ jobs:
         run: pip install --find-links=. vsi2tif-*
         shell: bash
 
-      - name: Install libvips (PPA)
+      - name: Install libvips (prebuilt)
         run: |
-          sudo add-apt-repository -y ppa:libvips/ppa
-          sudo apt-get update
-          sudo apt-get install -y libvips-tools libvips-dev
+          wget https://github.com/libvips/libvips/releases/download/v8.15.2/vips-8.15.2-linux-x64.tar.gz
+          tar xf vips-8.15.2-linux-x64.tar.gz
+          sudo mv vips-8.15.2-linux-x64 /usr/local/libvips
+          echo "/usr/local/libvips/bin" | sudo tee /etc/profile.d/vips.sh
+          echo "/usr/local/libvips/lib" | sudo tee /etc/ld.so.conf.d/vips.conf
+          sudo ldconfig
+          export PATH=/usr/local/libvips/bin:$PATH
+          vips --version
 
       - name: Install bftools
         run: |
