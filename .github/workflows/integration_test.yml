@@ -73,7 +73,7 @@ jobs:
             libglib2.0-dev libexpat1-dev libjpeg-turbo8-dev libpng-dev \
             libtiff-dev libwebp-dev libopenexr-dev liblcms2-dev \
             libimagequant-dev librsvg2-dev libheif-dev liborc-dev \
-            libcfitsio-dev meson ninja-build
+            libcfitsio-dev libjpeg-turbo8 libopenjp2-7 meson ninja-build
           wget https://github.com/libvips/libvips/releases/download/v8.17.1/vips-8.17.1.tar.xz
           tar xf vips-8.17.1.tar.xz
           cd vips-8.17.1
