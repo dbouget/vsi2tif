@@ -37,7 +37,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-latest]
+        os: [ubuntu-latest]
         python: ["3.10"]
     steps:
       - name: Checkout repo
@@ -62,8 +62,9 @@ jobs:
       
       - name: Install vips
         run: |
-          brew install --cask zulu@8
-          brew install vips
+          apt update
+          apt install zulu-8-jdk
+          pip install vips
       
       - name: Install bftools
         run: |
