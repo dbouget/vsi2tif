@@ -66,11 +66,12 @@ jobs:
         run: pip install --find-links=. vsi2tif-*
         shell: bash
 
-      - name: Install libvips
+      - name: Install libvips (PPA)
         run: |
+          sudo add-apt-repository -y ppa:libvips/ppa
           sudo apt-get update
-          sudo apt-get install -y libvips libvips-dev
-      
+          sudo apt-get install -y libvips-tools libvips-dev
+
       - name: Install bftools
         run: |
           wget http://downloads.openmicroscopy.org/latest/bio-formats5.6/artifacts/bftools.zip
