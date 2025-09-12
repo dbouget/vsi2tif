@@ -47,7 +47,13 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python }}
-      
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v5
+        with:
+          java-version: '8'
+          distribution: 'zulu'
+
       - name: Install dependencies
         run: pip install wheel setuptools
     
@@ -59,11 +65,9 @@ jobs:
       - name: Install wheel
         run: pip install --find-links=. vsi2tif-*
         shell: bash
-      
+
       - name: Install vips
         run: |
-          apt update
-          apt install zulu-8-jdk
           pip install vips
       
       - name: Install bftools
