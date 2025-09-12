@@ -66,9 +66,10 @@ jobs:
         run: pip install --find-links=. vsi2tif-*
         shell: bash
 
-      - name: Install vips
+      - name: Install libvips
         run: |
-          sudo apt install libvips-dev --no-install-recommends
+          sudo apt-get update
+          sudo apt-get install -y libvips libvips-dev vips-tools
       
       - name: Install bftools
         run: |
